@@ -1,0 +1,9 @@
+[Unit]
+Description=Battery Monitor
+
+[Service]
+ExecStart=/path/to/your/batter-monitor
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
