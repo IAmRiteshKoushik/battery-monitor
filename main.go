@@ -91,6 +91,6 @@ func checkBatteryStatus() {
 func main() {
 	for {
 		checkBatteryStatus()
-		time.Sleep(10 * time.Second)
+		time.Sleep(60 * time.Second)
 	}
 }
