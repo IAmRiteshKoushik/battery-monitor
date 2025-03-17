@@ -33,10 +33,15 @@ go build .
 2. Set the `ExecStart` path properly inside `battery-monitor.service`.
 3. Run using `systemd` (System and Service manager for Linux operating systems)
 ```bash
-sudo cp battery-monitor.service /etc/systemd/system/battery-monitor.service
-sudo systemctl enable battery-monitor.service
-sudo systemctl start battery-monitor.service
+sudo cp battery-monitor.service /etc/systemd/user/battery-monitor.service
+sudo systemctl --user enable battery-monitor.service
+sudo systemctl --user start battery-monitor.service
 ```
+Here, we are making the process user-specific. However, if you wish to configure
+it globally for all users then you would have to look into setting up 
+environment variables like `DBUS_SESSION_BUS_ADDRESS`. This is needed to 
+trigger `notify-send` from a root-process to a user-session. You can read more
+about it [here](https://bbs.archlinux.org/viewtopic.php?id=205867).
 
 # Some Considerations
 

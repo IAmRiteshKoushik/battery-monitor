@@ -74,7 +74,7 @@ func checkBatteryStatus() {
 	// Debugging statement
 	// notify("Reporting battery percentage", fmt.Sprintf("Battery level: %d%%", percent), "low")
 
-	if percent <= 20 {
+	if percent <= 20 && !isCharging {
 		notify("Battery Low", fmt.Sprintf("Battery level is %d%%. Please charge your device.",
 			percent), "critical")
 	}
@@ -82,7 +82,6 @@ func checkBatteryStatus() {
 		notify("Battery Charged Sufficiently.", fmt.Sprintf("Battery level has reached %d%%. Turn off charging.",
 			percent), "normal")
 	}
-
 	if isCharging && percent >= 95 {
 		notify("Battery Overflow.", fmt.Sprintf("Battery incurring damage"), "critical")
 	}

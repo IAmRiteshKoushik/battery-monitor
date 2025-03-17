@@ -2,8 +2,14 @@
 Description=Battery Monitor
 
 [Service]
-ExecStart=/path/to/your/batter-monitor
+Type=simple
+ExecStart=/path/to/your/battery-monitor-executable
 Restart=always
+RestartSec=1
+RemainAfterExit=yes
+KillMode=process
+IgnoreSIGPIPE=no
+Environment="DISPLAY=find-display-using-echo-command" "XAUTHORITY=<find-user-authority-using-echo"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
