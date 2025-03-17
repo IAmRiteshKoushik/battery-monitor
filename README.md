@@ -31,7 +31,9 @@ cd battery-monitor
 go build .
 ```
 2. Set the `ExecStart` path properly inside `battery-monitor.service`.
-3. Run using `systemd` (System and Service manager for Linux operating systems)
+3. Set the `Environment` variables by using the echo command on `$DISPLAY` and 
+`$XAUTHORITY`
+4. Run using `systemd` (System and Service manager for Linux operating systems)
 ```bash
 sudo cp battery-monitor.service /etc/systemd/user/battery-monitor.service
 sudo systemctl --user enable battery-monitor.service
