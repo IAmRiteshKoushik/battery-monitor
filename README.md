@@ -33,7 +33,7 @@ go build .
 2. Set the `ExecStart` path properly inside `battery-monitor.service`.
 3. Run using `systemd` (System and Service manager for Linux operating systems)
 ```bash
-sudo cp battery-monitor.toml /etc/systemd/system/battery-monitor.service
+sudo cp battery-monitor.service /etc/systemd/system/battery-monitor.service
 sudo systemctl enable battery-monitor.service
 sudo systemctl start battery-monitor.service
 ```
